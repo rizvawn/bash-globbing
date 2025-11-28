@@ -1,0 +1,6 @@
+=== LINUX KERNEL SOURCE ANALYSIS ===
+Generated: 2025-11-28
+
+[Surface Overview]
+Directories: 24
+Files: 7
