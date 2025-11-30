@@ -1,6 +1,6 @@
 
 === LINUX KERNEL SOURCE ANALYSIS ===
-Generated: 2025-11-30
+Generated: 2025-12-01
 *************************************
 
 [Surface Overview]
@@ -36,6 +36,11 @@ special files => uppercase
 ********************
 
 [Architecture Comparison]
+
+Architecture paths analyzed: 4 
+linux/arch/x86/ linux/arch/arm/ linux/arch/arm64/ linux/arch/riscv/
+
+Number of .xyz files: 0 matches
 
 Number of .c files for x86 (Intel/AMD): 599
 e.g. linux/arch/x86/boot/a20.c

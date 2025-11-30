@@ -127,7 +127,10 @@ e.g. ${FILENAMES_STARTING_WITH_LOWERCASE[0]}
 
 #######################################################
 
-shopt -s globstar
+shopt -s globstar  
+shopt -s nullglob  
+
+ARCH_DIRS=(linux/arch/{x86,arm,arm64,riscv}/)
 
 X86_FILES=(linux/arch/x86/**/*.c)
 ARM_FILES=(linux/arch/arm/**/*.c)
@@ -138,6 +141,8 @@ X86_COUNT=${#X86_FILES[@]}
 ARM_COUNT=${#ARM_FILES[@]}
 ARM64_COUNT=${#ARM64_FILES[@]}
 RISCV_COUNT=${#RISCV_FILES[@]}
+
+NONEXISTENT=(linux/arch/x86/**/*.xyz)
 
 LEARNT="ARM has more files for many more device variations 
 (phones, Raspberry Pi, embedded systems).
@@ -151,6 +156,11 @@ SSD manufacturer Western Digital's storage controllers"
 
 echo "
 [Architecture Comparison]
+
+Architecture paths analyzed: ${#ARCH_DIRS[@]} 
+${ARCH_DIRS[*]}
+
+Number of .xyz files: ${#NONEXISTENT[@]} matches
 
 Number of .c files for x86 (Intel/AMD): ${X86_COUNT}
 e.g. ${X86_FILES[0]}
@@ -170,6 +180,11 @@ e.g. ${RISCV_FILES[0]}
 "
 
 report "[Architecture Comparison]
+
+Architecture paths analyzed: ${#ARCH_DIRS[@]} 
+${ARCH_DIRS[*]}
+
+Number of .xyz files: ${#NONEXISTENT[@]} matches
 
 Number of .c files for x86 (Intel/AMD): ${X86_COUNT}
 e.g. ${X86_FILES[0]}
