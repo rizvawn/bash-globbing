@@ -51,9 +51,6 @@ cd bash-globbing
 # Clone the Linux kernel (shallow clone)
 git clone --depth 1 https://github.com/torvalds/linux.git
 
-# Make the script executable
-chmod +x investigate.sh
-
 # Run the investigation
 ./investigate.sh
 
