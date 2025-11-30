@@ -51,6 +51,9 @@ cd bash-globbing
 # Clone the Linux kernel (shallow clone)
 git clone --depth 1 https://github.com/torvalds/linux.git
 
+# Make the script executable
+chmod +x investigate.sh
+
 # Run the investigation
 ./investigate.sh
 
@@ -134,30 +137,6 @@ Number of non-code files in linux/block/: 4
 Number of non-code files in linux/crypto/: 10
 ```
 
-## 🎓 Learning Journey
-
-This project was completed as part of a Socratic learning approach:
-
-1. **Phase 1**: Basic wildcards (`*`, `?`, `*/`)
-2. **Phase 2**: Character classes (`[0-9]`, `[A-Z]`)
-3. **Phase 3**: Brace expansion (`{a,b,c}`)
-4. **Phase 4**: Extended globbing (`!(pattern)`, `**/*.c`)
-5. **Phase 5**: Kernel insights report
-
-See [.github/ROADMAP.md](.github/ROADMAP.md) for the complete learning path.
-
-## 🤝 Contributing
-
-Feel free to fork and extend the analysis! Some ideas:
-
-- Add more kernel subsystems to analyze
-- Compare different kernel versions
-- Visualize the data with charts
-
-## 📄 License
-
-MIT License - See [LICENSE](LICENSE) for details.
-
 ---
 
-***Completed: November 30, 2025***
+***Completed: December 1, 2025***
