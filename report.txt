@@ -1,3 +1,4 @@
+
 === LINUX KERNEL SOURCE ANALYSIS ===
 Generated: 2025-11-30
 *************************************
@@ -59,4 +60,16 @@ Some NASA projects
 SSD manufacturer Western Digital's storage controllers
 
 *********************
+
+[Non-Code Files Analysis]
+
+Number of non-code files in linux/block/: 4
+e.g. linux/block/Kconfig
+
+Number of non-code files in linux/crypto/: 10
+e.g. linux/crypto/asymmetric_keys
+
+*********************
+
+✅ Analysis complete!
 
