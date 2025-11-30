@@ -7,15 +7,17 @@ report() {
 }
 
 report "Generated: $(date +%Y-%m-%d)"
-report ""
+report "*************************************
+"
 
 #########################################################
 
 DIR_COUNT_LS="$(ls -l linux/ | grep "^d" | wc -l)"
 FILE_COUNT_LS="$(ls -l linux/ | grep "^-" | wc -l)"
 
-echo ""
-echo "[Surface Overview]"
+echo "
+[Surface Overview]
+"
 
 echo "Using ls:   
 Directories: $DIR_COUNT_LS, Files: $FILE_COUNT_LS
@@ -32,18 +34,22 @@ echo "Using glob:
 Directories: $DIR_COUNT, Files: $FILE_COUNT
 ***************"
 
-report "[Surface Overview]"
+report "[Surface Overview]
+"
 report "Directories: $DIR_COUNT"
 report "Files: $FILE_COUNT"
-report ""
+report "
+*****************
+"
 
 ########################################################
 
 C_FILES_LS="$(ls linux/block/*.c | wc -l)"
 H_FILES_LS="$(ls linux/block/*.h | wc -l)"
 
-echo ""
-echo "[Block Subsystem Analysis]"
+echo "
+[Block Subsystem Analysis]
+"
 echo "Using ls:   
 Number of implementation files: ${C_FILES_LS}
 Number of headers files: ${H_FILES_LS}
@@ -63,11 +69,52 @@ The ration between implementation and headers files is ${RATIO}:1
 **************"
 echo ""
 
-report "[Block Subsystem Analysis]"
+report "[Block Subsystem Analysis]
+"
 report "Number of implementation files: ${C_FILES_COUNT}"
 report "Number of headers files: ${H_FILES_COUNT}"
 report "The ratio between implementation and headers files is ${RATIO}:1"
-report ""
+report "
+****************
+"
 
 ########################################################
 
+FILENAMES_STARTING_WITH_NUMBER=(linux/crypto/[0-9]*) #FSW_NUMBER
+FILENAMES_STARTING_WITH_UPPERCASE=(linux/crypto/[A-Z]*) #FSW_UPPERCASE
+FILENAMES_STARTING_WITH_LOWERCASE=(linux/crypto/[a-z]*) #FSW_LOWERCASE
+
+COUNT_FSW_NUMBER=${#FILENAMES_STARTING_WITH_NUMBER[@]}
+COUNT_FSW_UPPERCASE=${#FILENAMES_STARTING_WITH_UPPERCASE[@]}
+COUNT_FSW_LOWERCASE=${#FILENAMES_STARTING_WITH_LOWERCASE[@]}
+
+echo "[Crypto Naming Patterns]
+Number of files starting with a number: ${COUNT_FSW_NUMBER}
+e.g. ${FILENAMES_STARTING_WITH_NUMBER[0]}
+Number of files starting with an uppercase letter: ${COUNT_FSW_UPPERCASE}
+e.g. ${FILENAMES_STARTING_WITH_UPPERCASE[0]}
+Number of files starting with an lowercase letter: ${COUNT_FSW_LOWERCASE}
+e.g. ${FILENAMES_STARTING_WITH_LOWERCASE[0]}
+
+*learnt*: Linux kernel follows conventions:
+code files => lowercase
+special files => uppercase
+****************"
+
+report "[Crypto Naming Patterns]
+
+Number of files starting with a number: ${COUNT_FSW_NUMBER}
+e.g. ${FILENAMES_STARTING_WITH_NUMBER[0]}
+Number of files starting with an uppercase letter: ${COUNT_FSW_UPPERCASE}
+e.g. ${FILENAMES_STARTING_WITH_UPPERCASE[0]}
+Number of files starting with an lowercase letter: ${COUNT_FSW_LOWERCASE}
+e.g. ${FILENAMES_STARTING_WITH_LOWERCASE[0]}
+
+*learnt*: Linux kernel follows conventions:
+code files => lowercase
+special files => uppercase
+
+********************
+" 
+
+#######################################################
