@@ -1,6 +1,12 @@
 === LINUX KERNEL SOURCE ANALYSIS ===
-Generated: 2025-11-28
+Generated: 2025-11-30
 
 [Surface Overview]
 Directories: 24
 Files: 7
+
+[Block Subsystem Analysis]
+Number of implementation files: 56
+Number of headers files: 16
+The ratio between implementation and headers files is 3:1
+
