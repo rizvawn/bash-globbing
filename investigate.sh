@@ -87,34 +87,102 @@ FILENAMES_STARTING_WITH_LOWERCASE=(linux/crypto/[a-z]*) #FSW_LOWERCASE
 COUNT_FSW_NUMBER=${#FILENAMES_STARTING_WITH_NUMBER[@]}
 COUNT_FSW_UPPERCASE=${#FILENAMES_STARTING_WITH_UPPERCASE[@]}
 COUNT_FSW_LOWERCASE=${#FILENAMES_STARTING_WITH_LOWERCASE[@]}
+LEARNT="Linux kernel follows conventions:
+code files => lowercase
+special files => uppercase"
 
-echo "[Crypto Naming Patterns]
+echo "
+[Crypto Naming Patterns]
+
 Number of files starting with a number: ${COUNT_FSW_NUMBER}
 e.g. ${FILENAMES_STARTING_WITH_NUMBER[0]}
+
 Number of files starting with an uppercase letter: ${COUNT_FSW_UPPERCASE}
 e.g. ${FILENAMES_STARTING_WITH_UPPERCASE[0]}
+
 Number of files starting with an lowercase letter: ${COUNT_FSW_LOWERCASE}
 e.g. ${FILENAMES_STARTING_WITH_LOWERCASE[0]}
 
-*learnt*: Linux kernel follows conventions:
-code files => lowercase
-special files => uppercase
+*learnt*: ${LEARNT}
 ****************"
 
 report "[Crypto Naming Patterns]
 
 Number of files starting with a number: ${COUNT_FSW_NUMBER}
 e.g. ${FILENAMES_STARTING_WITH_NUMBER[0]}
+
 Number of files starting with an uppercase letter: ${COUNT_FSW_UPPERCASE}
 e.g. ${FILENAMES_STARTING_WITH_UPPERCASE[0]}
+
 Number of files starting with an lowercase letter: ${COUNT_FSW_LOWERCASE}
 e.g. ${FILENAMES_STARTING_WITH_LOWERCASE[0]}
 
-*learnt*: Linux kernel follows conventions:
-code files => lowercase
-special files => uppercase
+*learnt*: ${LEARNT}
 
 ********************
 " 
 
 #######################################################
+
+shopt -s globstar
+
+X86_FILES=(linux/arch/x86/**/*.c)
+ARM_FILES=(linux/arch/arm/**/*.c)
+ARM64_FILES=(linux/arch/arm64/**/*.c)
+RISCV_FILES=(linux/arch/riscv/**/*.c)
+
+X86_COUNT=${#X86_FILES[@]}
+ARM_COUNT=${#ARM_FILES[@]}
+ARM64_COUNT=${#ARM64_FILES[@]}
+RISCV_COUNT=${#RISCV_FILES[@]}
+
+LEARNT="ARM has more files for many more device variations 
+(phones, Raspberry Pi, embedded systems).
+
+x86 is more standardized (fewer hardware quirks to handle).
+
+RISC-V is open-source, royalty-free and is used in:
+Low-power IoT devices
+Some NASA projects
+SSD manufacturer Western Digital's storage controllers"
+
+echo "
+[Architecture Comparison]
+
+Number of .c files for x86 (Intel/AMD): ${X86_COUNT}
+e.g. ${X86_FILES[0]}
+
+Number of .c files for arm (32-bit): ${ARM_COUNT}
+e.g. ${ARM_FILES[0]}
+
+Number of .c files for arm64 (64-bit): ${ARM64_COUNT}
+e.g. ${ARM64_FILES[0]}
+
+Number of .c files for riscv (emerging): ${RISCV_COUNT}
+e.g. ${RISCV_FILES[0]}
+
+*learnt*: ${LEARNT}
+****************
+"
+
+report "[Architecture Comparison]
+
+Number of .c files for x86 (Intel/AMD): ${X86_COUNT}
+e.g. ${X86_FILES[0]}
+
+Number of .c files for arm (32-bit): ${ARM_COUNT}
+e.g. ${ARM_FILES[0]}
+
+Number of .c files for arm64 (64-bit): ${ARM64_COUNT}
+e.g. ${ARM64_FILES[0]}
+
+Number of .c files for riscv (emerging): ${RISCV_COUNT}
+e.g. ${RISCV_FILES[0]}
+
+*learnt*: ${LEARNT}
+
+*********************
+"
+
+######################################################
+

@@ -21,8 +21,10 @@ The ratio between implementation and headers files is 3:1
 
 Number of files starting with a number: 1
 e.g. linux/crypto/842.c
+
 Number of files starting with an uppercase letter: 2
 e.g. linux/crypto/Kconfig
+
 Number of files starting with an lowercase letter: 145
 e.g. linux/crypto/acompress.c
 
@@ -31,4 +33,30 @@ code files => lowercase
 special files => uppercase
 
 ********************
+
+[Architecture Comparison]
+
+Number of .c files for x86 (Intel/AMD): 599
+e.g. linux/arch/x86/boot/a20.c
+
+Number of .c files for arm (32-bit): 655
+e.g. linux/arch/arm/boot/compressed/atags_to_fdt.c
+
+Number of .c files for arm64 (64-bit): 201
+e.g. linux/arch/arm64/crypto/aes-ce-ccm-glue.c
+
+Number of .c files for riscv (emerging): 139
+e.g. linux/arch/riscv/crypto/aes-riscv64-glue.c
+
+*learnt*: ARM has more files for many more device variations 
+(phones, Raspberry Pi, embedded systems).
+
+x86 is more standardized (fewer hardware quirks to handle).
+
+RISC-V is open-source, royalty-free and is used in:
+Low-power IoT devices
+Some NASA projects
+SSD manufacturer Western Digital's storage controllers
+
+*********************
 
